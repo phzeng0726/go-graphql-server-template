@@ -319,7 +319,7 @@ type Group
   endedAt: Timestamp!
 }
 `, BuiltIn: false},
-	{Name: "../graphql/schema.graphql", Input: `# 讓graphql可以使用@goModel，這樣可以直接combine gen model跟domain model
+	{Name: "../graphql/schema.graphql", Input: `# Enable GraphQL to use @goModel, allowing direct combination of generated models and domain models
 directive @goModel(
   model: String
   models: [String!]

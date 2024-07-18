@@ -1,4 +1,4 @@
-# 讓graphql可以使用@goModel，這樣可以直接combine gen model跟domain model
+# Enable GraphQL to use @goModel, allowing direct combination of generated models and domain models
 directive @goModel(
   model: String
   models: [String!]

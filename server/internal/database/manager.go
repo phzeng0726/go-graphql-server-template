@@ -9,6 +9,7 @@ import (
 )
 
 func Connect() *gorm.DB {
+	// TODO: You can change to another SQL driver if needed.
 	conn, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("Failed to connect database: %v", err)

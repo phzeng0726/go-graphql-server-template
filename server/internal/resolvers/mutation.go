@@ -25,7 +25,7 @@ func (r *mutationResolver) CreateGroup(ctx context.Context, input autogen.NewGro
 	return true, nil
 }
 
-/*
+/* EXAMPLE:
 mutation createGroup(
   $ownerId: String! = "user0001"
   $remark: String! = "My first record",
@@ -54,7 +54,7 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input autogen.NewUser
 	return true, nil
 }
 
-/*
+/* EXAMPLE:
 mutation createUser(
   $userId: String! = "user0001"
   $username: String! = "Rita Zeng",

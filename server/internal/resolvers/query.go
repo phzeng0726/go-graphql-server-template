@@ -24,7 +24,7 @@ func (r *queryResolver) GroupDetail(ctx context.Context, filter autogen.GroupDet
 	return &group, nil
 }
 
-/*
+/* EXAMPLE:
 query groupDetail(
   $groupId: Int! = 1
 ) {
