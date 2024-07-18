@@ -27,6 +27,13 @@ func (r *GroupsRepo) Create(ctx context.Context, group domain.Group) error {
 	return nil
 }
 
-func (r *GroupsRepo) GetGroup(ctx context.Context, groupId string) (domain.Group, error) {
-	return domain.Group{Id: "hi"}, nil
+func (r *GroupsRepo) GetGroup(ctx context.Context, groupId int) (domain.Group, error) {
+	var group domain.Group
+	db := r.db.WithContext(ctx)
+
+	if err := db.Where("id = ?", groupId).First(&group).Error; err != nil {
+		return group, err
+	}
+
+	return group, nil
 }

@@ -3,37 +3,20 @@ scalar Timestamp
 input NewGroupInput {
   ownerId: String!
   remark: String!
-  products: [NewProductInput!]
   endedAt: Timestamp!
 }
 
-input NewProductInput {
-  name: String!
-  price: Int!
-}
-
 input GroupDetailFilter {
-  groupId: String!
-  ownerId: String
-}
-
-type Product
-  @goModel(
-    model: "github.com/phzeng0726/go-graphql-server-template/internal/domain.Product"
-  ) {
-  id: String!
-  name: String!
-  price: Int!
+  groupId: Int!
 }
 
 type Group
   @goModel(
     model: "github.com/phzeng0726/go-graphql-server-template/internal/domain.Group"
   ) {
-  id: String
+  id: Int
   ownerName: String!
   remark: String!
   createdAt: Timestamp!
-  closedAt: Timestamp!
-  products: [Product!]
+  endedAt: Timestamp!
 }

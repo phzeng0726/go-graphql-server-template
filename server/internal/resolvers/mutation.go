@@ -27,26 +27,42 @@ func (r *mutationResolver) CreateGroup(ctx context.Context, input autogen.NewGro
 
 /*
 mutation createGroup(
-  $ownerId: String! = "aaa"
-  $remark: String! = "remark",
-  $products: [NewProductInput!] = [
-        {
-          name: "雞排",
-          price: 100
-        },
-    		{
-          name: "汽水",
-          price: 30
-        }
-  ],
+  $ownerId: String! = "user0001"
+  $remark: String! = "My first record",
   $endedAt: Timestamp! = "2024-01-10T12:34:56.123456789Z",
 ) {
   createGroup(
     input: {
       ownerId: $ownerId,
       remark: $remark,
-      products: $products
       endedAt: $endedAt
+    }
+  )
+}
+*/
+
+func (r *mutationResolver) CreateUser(ctx context.Context, input autogen.NewUserInput) (bool, error) {
+	user := domain.User{
+		Id:   input.UserID,
+		Name: input.Username,
+	}
+
+	if err := r.Repos.Users.Create(ctx, user); err != nil {
+		return false, err
+	}
+
+	return true, nil
+}
+
+/*
+mutation createUser(
+  $userId: String! = "user0001"
+  $username: String! = "Rita Zeng",
+) {
+  createUser(
+    input: {
+      userId: $userId,
+      username: $username,
     }
   )
 }

@@ -1,0 +1,4 @@
+input NewUserInput {
+  userId: String!
+  username: String!
+}

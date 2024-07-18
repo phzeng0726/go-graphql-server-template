@@ -7,23 +7,21 @@ import (
 )
 
 type GroupDetailFilter struct {
-	GroupID string  `json:"groupId"`
-	OwnerID *string `json:"ownerId,omitempty"`
+	GroupID int `json:"groupId"`
 }
 
 type Mutation struct {
 }
 
 type NewGroupInput struct {
-	OwnerID  string            `json:"ownerId"`
-	Remark   string            `json:"remark"`
-	Products []NewProductInput `json:"products,omitempty"`
-	EndedAt  time.Time         `json:"endedAt"`
+	OwnerID string    `json:"ownerId"`
+	Remark  string    `json:"remark"`
+	EndedAt time.Time `json:"endedAt"`
 }
 
-type NewProductInput struct {
-	Name  string `json:"name"`
-	Price int    `json:"price"`
+type NewUserInput struct {
+	UserID   string `json:"userId"`
+	Username string `json:"username"`
 }
 
 type Query struct {

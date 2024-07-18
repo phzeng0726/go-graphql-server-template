@@ -27,6 +27,7 @@ func init() {
 
 func main() {
 	conn := database.Connect()
+	database.SyncDatabase(conn)
 
 	repos := repository.NewRepositories(conn)
 

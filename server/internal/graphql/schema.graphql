@@ -15,9 +15,10 @@ directive @goTag(
 ) on INPUT_FIELD_DEFINITION | FIELD_DEFINITION
 
 type Query {
-  groupDetail(filter: GroupDetailFilter!): Group # ownerId (可看到Orders和Products) | groupId (只看的到Products)
+  groupDetail(filter: GroupDetailFilter!): Group
 }
 
 type Mutation {
-  createGroup(input: NewGroupInput!): Boolean! # 開團
+  createUser(input: NewUserInput!): Boolean!
+  createGroup(input: NewGroupInput!): Boolean!
 }

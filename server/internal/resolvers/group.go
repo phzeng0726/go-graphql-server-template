@@ -10,7 +10,11 @@ type groupResolver struct {
 	*Resolver
 }
 
-// TODO 用 OwnerId 去查OwnerName
 func (r *groupResolver) OwnerName(ctx context.Context, obj *domain.Group) (string, error) {
-	return "ownerName", nil
+	user, err := r.Repos.Users.GetUserById(ctx, obj.OwnerId)
+	if err != nil {
+		return "", err
+	}
+
+	return user.Name, nil
 }

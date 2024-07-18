@@ -26,33 +26,18 @@ func (r *queryResolver) GroupDetail(ctx context.Context, filter autogen.GroupDet
 
 /*
 query groupDetail(
-  $groupId: String = "H7YuFIi6rNPAe28CPiHP"
-  $ownerId: String = "aaa"
+  $groupId: Int! = 1
 ) {
   result: groupDetail(
     filter: {
       groupId: $groupId,
-      ownerId: $ownerId
     }
   ) {
     id
     ownerName
     remark
     createdAt
-    closedAt
-    products {
-      id
-      name
-      price
-    }
-    orders {
-      userId
-      groupId
-      items {
-        productId
-        quantity
-      }
-    }
+    endedAt
   }
 }
 */
