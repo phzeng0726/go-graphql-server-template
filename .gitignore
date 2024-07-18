@@ -16,7 +16,13 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+log/
 
 # Go workspace file
 go.work
 go.work.sum
+
+# Others
+.env
+.env.*
+*.pem

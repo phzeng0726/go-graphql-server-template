@@ -1,0 +1,23 @@
+schema:
+  - internal/graphql/*.graphql
+
+exec:
+  filename: internal/autogen/generated.go
+  package: autogen
+
+federation:
+  filename: internal/autogen/federation.go
+  package: autogen
+
+model:
+  filename: internal/autogen/gen_models.go
+  package: autogen
+
+# Optional: turn on to use []Thing instead of []*Thing
+omit_slice_element_pointers: true
+
+models:
+  Int64:
+    model: github.com/99designs/gqlgen/graphql.Int64
+  Timestamp:
+    model: github.com/phzeng0726/go-graphql-server-template/internal/scalars.Timestamp # 替換成你自己的 scalar 路徑
