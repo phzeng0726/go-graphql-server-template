@@ -14,7 +14,7 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input autogen.NewUser
 		Name: input.Username,
 	}
 
-	if err := r.Repos.Users.Create(ctx, user); err != nil {
+	if err := r.Services.Users.Create(ctx, user); err != nil {
 		return false, err
 	}
 

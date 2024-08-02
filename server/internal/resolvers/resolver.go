@@ -2,7 +2,7 @@ package resolvers
 
 import (
 	"github.com/phzeng0726/go-graphql-server-template/internal/autogen"
-	"github.com/phzeng0726/go-graphql-server-template/internal/repository"
+	"github.com/phzeng0726/go-graphql-server-template/internal/service"
 )
 
 type contextKey int
@@ -13,13 +13,13 @@ const (
 )
 
 type Resolver struct {
-	Repos *repository.Repositories
+	Services *service.Services
 }
 
-func NewConfig(repos *repository.Repositories) autogen.Config {
+func NewConfig(services *service.Services) autogen.Config {
 	return autogen.Config{
 		Resolvers: &Resolver{
-			Repos: repos,
+			Services: services,
 		},
 	}
 }

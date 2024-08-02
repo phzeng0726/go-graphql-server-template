@@ -12,7 +12,7 @@ type groupResolver struct {
 }
 
 func (r *groupResolver) OwnerName(ctx context.Context, obj *domain.Group) (string, error) {
-	user, err := r.Repos.Users.GetUserById(ctx, obj.OwnerId)
+	user, err := r.Services.Users.GetUserById(ctx, obj.OwnerId)
 	if err != nil {
 		return "", err
 	}
@@ -28,7 +28,7 @@ func (r *mutationResolver) CreateGroup(ctx context.Context, input autogen.NewGro
 		EndedAt: input.EndedAt,
 	}
 
-	if err := r.Repos.Groups.Create(ctx, group); err != nil {
+	if err := r.Services.Groups.Create(ctx, group); err != nil {
 		return false, err
 	}
 
@@ -53,7 +53,7 @@ mutation createGroup(
 
 // Queries
 func (r *queryResolver) GroupDetail(ctx context.Context, filter autogen.GroupDetailFilter) (*domain.Group, error) {
-	group, err := r.Repos.Groups.GetGroup(ctx, filter.GroupID)
+	group, err := r.Services.Groups.GetGroup(ctx, filter.GroupID)
 	if err != nil {
 		return nil, err
 	}
