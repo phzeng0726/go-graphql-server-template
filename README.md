@@ -35,9 +35,15 @@ github.com/joho/godotenv
 1. Create `gplgen.yml` in the same directory as `go.mod`
 2. Build `*.graphql` files in the `/graphql` folder and define your GraphQL inputs and models.
 3. Add **queries** and **mutations** in `schema.graphql`.
-4. Run the following command to generate `/internal/autogen`:
+4. To generate the `/autogen` folder under the `/internal` directory, run the following commands::
    ```powershell=
-   go get github.com/99designs/gqlgen@v0.17.49; go run github.com/99designs/gqlgen
+   go get github.com/99designs/gqlgen@v0.17.49
+   go run github.com/99designs/gqlgen
+   ```
+   If you can execute a Makefile, you can also run the following commands:
+   ```powershell=
+   cd server
+   make graphql-generate
    ```
    The autogen will generate many `Resolver` interfaces, such as `QueryResolver`, `MutationResolver` and others.
    ![Resolvers by autogen](./screenshots/resolvers_by_autogen.png)
